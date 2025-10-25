@@ -1,7 +1,10 @@
 package com.femcoders.my_university.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.repository.StudentRepository;
 
 @Service
@@ -15,7 +18,12 @@ public class StudentServiceImpl implements StudentService {
 
     //GET STUDENT SCHOOL ---------------------------------------------
     //sin DTO
-    
+    @Override
+    public ResponseEntity<Student> getStudentProfileById(int id) {
+        Student student = studentRepository.findById(id).get();
+        return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
 
     //con DTO Response sin mapper
     

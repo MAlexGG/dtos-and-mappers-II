@@ -1,4 +1,4 @@
-# DTOs & MAPPERS, part I
+# DTOs & MAPPERS, part II
 
 ## Context
 This is the continuation of an API that manages students and the courses they are enrolled in at one of the university's schools.The relationship between students and schools will be one-to-many (a student can only enroll in one school, but a school allows multiple students to enroll). The relationship between students and courses will be many-to-many (a student can enroll in multiple courses, and a course can have multiple students).
