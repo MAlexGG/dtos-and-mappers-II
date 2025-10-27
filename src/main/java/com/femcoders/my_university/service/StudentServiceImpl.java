@@ -33,18 +33,5 @@ public class StudentServiceImpl implements StudentService {
 
     //con DTO Response con mapper MapStruct
     
-
-
-    //GET STUDENT COURSES ----------------------------------------------
-    //sin DTO
-    
-
-    //con DTO Response sin mapper
-    
-
-    //con DTO Response con mapper manual
-    
-
-    //con DTO Response con mapper MapStruct
     
 }
