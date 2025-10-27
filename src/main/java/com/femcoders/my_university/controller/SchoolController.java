@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-
 @RestController
 @RequestMapping("/api/v1/schools")
 public class SchoolController {
@@ -43,4 +42,11 @@ public class SchoolController {
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(@PathVariable int id){
         return schoolService.getStudentsBySchoolWithDto(id);
     }
+
+    //con Dto con mapper manual
+    @GetMapping("/mapper/{id}")
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(@PathVariable int id) {
+        return schoolService.getStudentsBySchoolWithDtoAndMapper(id);
+    }
+    
 }

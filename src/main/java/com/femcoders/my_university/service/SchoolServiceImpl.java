@@ -10,6 +10,7 @@ import com.femcoders.my_university.dto.response.SchoolWithStudentsDto;
 import com.femcoders.my_university.dto.response.StudentDto;
 import com.femcoders.my_university.entity.School;
 import com.femcoders.my_university.entity.Student;
+import com.femcoders.my_university.mapper.SchoolMapper;
 import com.femcoders.my_university.repository.SchoolRepository;
 import com.femcoders.my_university.repository.StudentRepository;
 
@@ -18,10 +19,12 @@ public class SchoolServiceImpl implements SchoolService {
 
     SchoolRepository schoolRepository;
     StudentRepository studentRepository;
+    SchoolMapper schoolMapper;
 
-    public SchoolServiceImpl(SchoolRepository schoolRepository,StudentRepository studentRepository){
+    public SchoolServiceImpl(SchoolRepository schoolRepository, StudentRepository studentRepository, SchoolMapper schoolMapper){
         this.schoolRepository = schoolRepository;
         this.studentRepository = studentRepository;
+        this.schoolMapper = schoolMapper;
     }
 
     @Override
@@ -51,5 +54,17 @@ public class SchoolServiceImpl implements SchoolService {
         
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    //con Dto y mapper manual
+    @Override
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(int id) {
+        School school = schoolRepository.findById(id).get();
+        return new ResponseEntity<>(schoolMapper.toDto(school), HttpStatus.OK);
+    }
+
+    
+    
+
+
 
 }
