@@ -8,7 +8,5 @@ public interface StudentService {
     
     //GET STUDENT SCHOOL
     public ResponseEntity<Student> getStudentProfileById(int id);
-
-    //GET STUDENT COURSE
     
 }

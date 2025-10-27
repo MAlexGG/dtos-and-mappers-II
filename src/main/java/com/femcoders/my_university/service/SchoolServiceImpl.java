@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.femcoders.my_university.dto.response.SchoolWithStudentsDto;
+import com.femcoders.my_university.dto.response.StudentDto;
 import com.femcoders.my_university.entity.School;
 import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.repository.SchoolRepository;
@@ -28,10 +30,26 @@ public class SchoolServiceImpl implements SchoolService {
         return new ResponseEntity<>(school, HttpStatus.OK);
     }
 
+
+    //GET STUDENTS BY SCHOOL
+    //sin Dto
     @Override
     public ResponseEntity<List<Student>> getStudentsBySchool(int id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(studentRepository.findBySchool(school), HttpStatus.OK);
+    }
+
+    //con Dto sin mapper
+    @Override
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(int id) {
+        School school = schoolRepository.findById(id).get();
+
+        List<StudentDto> students = school.getStudents().stream()
+        .map(student -> new StudentDto(student.getId(), student.getName(), student.getLastname(), student.getDni_nie(), student.getPhone(), student.getEmail())).toList();
+
+        SchoolWithStudentsDto response = new SchoolWithStudentsDto(school.getId(), school.getName(), students);
+        
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }
