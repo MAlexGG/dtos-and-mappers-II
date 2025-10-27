@@ -16,6 +16,8 @@ public interface SchoolService {
     public ResponseEntity<List<Student>> getStudentsBySchool(int id);
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(int id);
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(int id);
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(int id);
+
 
 
 }

@@ -11,6 +11,7 @@ import com.femcoders.my_university.dto.response.StudentDto;
 import com.femcoders.my_university.entity.School;
 import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.mapper.SchoolMapper;
+import com.femcoders.my_university.mapper.SchoolMapperMapStruct;
 import com.femcoders.my_university.repository.SchoolRepository;
 import com.femcoders.my_university.repository.StudentRepository;
 
@@ -20,11 +21,13 @@ public class SchoolServiceImpl implements SchoolService {
     SchoolRepository schoolRepository;
     StudentRepository studentRepository;
     SchoolMapper schoolMapper;
+    SchoolMapperMapStruct schoolMapperMapStruct;
 
-    public SchoolServiceImpl(SchoolRepository schoolRepository, StudentRepository studentRepository, SchoolMapper schoolMapper){
+    public SchoolServiceImpl(SchoolRepository schoolRepository, StudentRepository studentRepository, SchoolMapper schoolMapper,SchoolMapperMapStruct schoolMapperMapStruct){
         this.schoolRepository = schoolRepository;
         this.studentRepository = studentRepository;
         this.schoolMapper = schoolMapper;
+        this.schoolMapperMapStruct = schoolMapperMapStruct;
     }
 
     @Override
@@ -62,6 +65,14 @@ public class SchoolServiceImpl implements SchoolService {
         return new ResponseEntity<>(schoolMapper.toDto(school), HttpStatus.OK);
     }
 
+    //con Dto y mapper MapStruct
+    @Override
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(int id) {
+        School school = schoolRepository.findById(id).get();
+        return new ResponseEntity<>(schoolMapperMapStruct.toDto(school), HttpStatus.OK);
+    }
+
+    
     
     
 

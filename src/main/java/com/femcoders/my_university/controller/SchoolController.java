@@ -48,5 +48,12 @@ public class SchoolController {
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(@PathVariable int id) {
         return schoolService.getStudentsBySchoolWithDtoAndMapper(id);
     }
+
+    //con Dto con mapper MapStruct
+    @GetMapping("/mapstruct/{id}")
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(@PathVariable int id) {
+        return schoolService.getStudentsBySchoolWithDtoAndMapStruct(id);
+    }
+    
     
 }
