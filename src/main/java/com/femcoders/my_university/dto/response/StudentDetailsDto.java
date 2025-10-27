@@ -12,7 +12,7 @@ public class StudentDetailsDto {
     private Integer id;
     private String name;
     private String lastname;
-    private String dni_nie;
+    private String dniNie;
     private Integer phone;
     private String email;
 

@@ -30,13 +30,6 @@ public class SchoolServiceImpl implements SchoolService {
         this.schoolMapperMapStruct = schoolMapperMapStruct;
     }
 
-    @Override
-    public ResponseEntity<School> getSchoolById(Integer id) {
-        School school = schoolRepository.findById(id).get();
-        return new ResponseEntity<>(school, HttpStatus.OK);
-    }
-
-
     //GET STUDENTS BY SCHOOL
     //sin Dto
     @Override

@@ -6,9 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.femcoders.my_university.dto.request.StudentWithSchoolIdDto;
 import com.femcoders.my_university.dto.response.StudentDetailsDto;
 import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.service.StudentService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -33,5 +40,21 @@ public class StudentController {
     public ResponseEntity<StudentDetailsDto> getStudentProfileByIdWithDtoAndMapStruct(@PathVariable Integer id){
         return studentService.getStudentProfileByIdWithDtoAndMapStruct(id);
     }
+
+    //CREATE STUDENT WITH SCHOOL
+    //sin Dto
+    @PostMapping("/student/school/{id}")
+    public ResponseEntity<Student> createStudentWithSchool(@Valid @RequestBody Student student, @PathVariable Integer id) {
+        return studentService.createStudentWithSchool(student, id);
+    }
+
+    //con Dto con mapper MapStruct
+    @PostMapping("/student/school/mapstruct")
+    public ResponseEntity<Student> createStudentWithSchoolWithDtoAndMapStruct(@Valid @RequestBody StudentWithSchoolIdDto student) {
+        return studentService.createStudentWithSchoolWithDtoAndMapStruct(student);
+    }
+
+    
+    
     
 }

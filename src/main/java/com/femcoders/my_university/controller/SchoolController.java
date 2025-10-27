@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.femcoders.my_university.dto.response.SchoolWithStudentsDto;
-import com.femcoders.my_university.entity.School;
 import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.service.SchoolService;
 
@@ -23,11 +22,6 @@ public class SchoolController {
 
     public SchoolController(SchoolService schoolService){
         this.schoolService = schoolService;
-    }
-
-    @GetMapping("/school/{id}")
-    public ResponseEntity<School> getSchoolById(@PathVariable Integer id) {
-        return schoolService.getSchoolById(id);
     }
     
     //GET STUDENTS BY SCHOOL
