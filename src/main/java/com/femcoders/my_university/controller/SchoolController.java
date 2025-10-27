@@ -26,32 +26,32 @@ public class SchoolController {
     }
 
     @GetMapping("/school/{id}")
-    public ResponseEntity<School> getSchoolById(@PathVariable int id) {
+    public ResponseEntity<School> getSchoolById(@PathVariable Integer id) {
         return schoolService.getSchoolById(id);
     }
     
     //GET STUDENTS BY SCHOOL
     //Sin Dto
     @GetMapping("/{id}")
-    public ResponseEntity<List<Student>> getStudentsBySchool(@PathVariable int id){
+    public ResponseEntity<List<Student>> getStudentsBySchool(@PathVariable Integer id){
         return schoolService.getStudentsBySchool(id);
     }
 
     //con Dto sin mapper
     @GetMapping("/dto/{id}")
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(@PathVariable int id){
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(@PathVariable Integer id){
         return schoolService.getStudentsBySchoolWithDto(id);
     }
 
     //con Dto con mapper manual
     @GetMapping("/mapper/{id}")
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(@PathVariable int id) {
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(@PathVariable Integer id) {
         return schoolService.getStudentsBySchoolWithDtoAndMapper(id);
     }
 
     //con Dto con mapper MapStruct
     @GetMapping("/mapstruct/{id}")
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(@PathVariable int id) {
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(@PathVariable Integer id) {
         return schoolService.getStudentsBySchoolWithDtoAndMapStruct(id);
     }
     

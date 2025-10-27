@@ -26,7 +26,7 @@ public class School {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false, length = 150)
     private String name;

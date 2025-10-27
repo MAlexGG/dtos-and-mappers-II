@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.femcoders.my_university.dto.response.StudentDetailsDto;
 import com.femcoders.my_university.entity.Student;
 import com.femcoders.my_university.service.StudentService;
 
@@ -23,17 +24,14 @@ public class StudentController {
     //GET STUDENT PROFILE ---------------------------------------------
     //sin DTO
     @GetMapping("/student/{id}")
-    public ResponseEntity<Student> getStudentProfileById(@PathVariable int id){
+    public ResponseEntity<Student> getStudentProfileById(@PathVariable Integer id){
         return studentService.getStudentProfileById(id);
     }
 
-    //con DTO Response sin mapper
-    
-
-    //con DTO Response con mapper manual
-
-
     //con DTO Response con mapper MapStruct
-
+    @GetMapping("/student/mapstruct/{id}")
+    public ResponseEntity<StudentDetailsDto> getStudentProfileByIdWithDtoAndMapStruct(@PathVariable Integer id){
+        return studentService.getStudentProfileByIdWithDtoAndMapStruct(id);
+    }
     
 }

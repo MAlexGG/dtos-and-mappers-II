@@ -10,13 +10,13 @@ import com.femcoders.my_university.entity.Student;
 
 public interface SchoolService {
     
-    public ResponseEntity<School> getSchoolById(int id);
+    public ResponseEntity<School> getSchoolById(Integer id);
 
     //GET STUDENTS BY SCHOOL
-    public ResponseEntity<List<Student>> getStudentsBySchool(int id);
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(int id);
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(int id);
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(int id);
+    public ResponseEntity<List<Student>> getStudentsBySchool(Integer id);
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(Integer id);
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(Integer id);
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(Integer id);
 
 
 

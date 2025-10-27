@@ -31,7 +31,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public ResponseEntity<School> getSchoolById(int id) {
+    public ResponseEntity<School> getSchoolById(Integer id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(school, HttpStatus.OK);
     }
@@ -40,14 +40,14 @@ public class SchoolServiceImpl implements SchoolService {
     //GET STUDENTS BY SCHOOL
     //sin Dto
     @Override
-    public ResponseEntity<List<Student>> getStudentsBySchool(int id) {
+    public ResponseEntity<List<Student>> getStudentsBySchool(Integer id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(studentRepository.findBySchool(school), HttpStatus.OK);
     }
 
     //con Dto sin mapper
     @Override
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(int id) {
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDto(Integer id) {
         School school = schoolRepository.findById(id).get();
 
         List<StudentDto> students = school.getStudents().stream()
@@ -60,14 +60,14 @@ public class SchoolServiceImpl implements SchoolService {
 
     //con Dto y mapper manual
     @Override
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(int id) {
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(Integer id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(schoolMapper.toDto(school), HttpStatus.OK);
     }
 
     //con Dto y mapper MapStruct
     @Override
-    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(int id) {
+    public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(Integer id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(schoolMapperMapStruct.toDto(school), HttpStatus.OK);
     }
