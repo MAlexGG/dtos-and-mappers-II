@@ -51,14 +51,14 @@ public class SchoolServiceImpl implements SchoolService {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    //con Dto y mapper manual
+    //con Dto con mapper manual
     @Override
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapper(Integer id) {
         School school = schoolRepository.findById(id).get();
         return new ResponseEntity<>(schoolMapper.toDto(school), HttpStatus.OK);
     }
 
-    //con Dto y mapper MapStruct
+    //con Dto con mapper MapStruct
     @Override
     public ResponseEntity<SchoolWithStudentsDto> getStudentsBySchoolWithDtoAndMapStruct(Integer id) {
         School school = schoolRepository.findById(id).get();

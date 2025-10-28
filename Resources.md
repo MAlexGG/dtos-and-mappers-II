@@ -1,6 +1,6 @@
 # Exercise
 
-1. Use DTOs and mappers to return a response tath takes the information of the school with a list os students with all its fields:
+1. Use DTOs and mappers to return a response that takes the information of the school with a list of students with all its fields:
 
 {
   "id": 2,
@@ -31,6 +31,7 @@
   "id": 3,
   "name": "John",
   "lastname": "Doe",
+  "dniNie": 44564357A,
   "schoolId": 2,
   "schoolName": "Engineering"
 }
